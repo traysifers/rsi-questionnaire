@@ -20,103 +20,53 @@
     margin: 0 auto;
     background: #fff;
     border-radius: 12px;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
     overflow: hidden;
   }
 
   .header {
-    background: linear-gradient(135deg, #2980b9, #1a5276);
+    background: linear-gradient(135deg, #1a5276, #2980b9);
     color: #fff;
     padding: 24px 20px;
     text-align: center;
   }
 
   .header h1 {
-    font-size: 22px;
-    font-weight: 700;
+    font-size: 20px;
+    font-weight: 600;
     margin-bottom: 4px;
   }
 
   .header p {
-    font-size: 14px;
-    opacity: 0.9;
+    font-size: 13px;
+    opacity: 0.85;
   }
 
   .instructions {
-    background: #eaf4fb;
+    background: #eaf2f8;
     border-left: 4px solid #2980b9;
     margin: 20px;
-    padding: 14px 16px;
+    padding: 16px;
     border-radius: 0 8px 8px 0;
     font-size: 14px;
-    line-height: 1.6;
   }
 
-  .field-group {
-    padding: 0 20px 16px;
-  }
+  .instructions strong { color: #1a5276; }
 
-  .field-group label {
-    display: block;
-    font-size: 13px;
-    font-weight: 600;
-    color: #2980b9;
-    margin-bottom: 6px;
-  }
-
-  .field-group input {
-    width: 100%;
-    padding: 10px 12px;
-    border: 1.5px solid #d0d8e0;
-    border-radius: 8px;
-    font-size: 15px;
-    outline: none;
-    transition: border-color 0.2s;
-  }
-
-  .field-group input:focus {
-    border-color: #2980b9;
-  }
-
-  .progress-bar {
-    margin: 0 20px 4px;
-    height: 6px;
-    background: #e0e8f0;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-
-  .progress-fill {
-    height: 100%;
-    width: 0%;
-    background: #27ae60;
-    border-radius: 8px;
-    transition: width 0.3s;
-  }
-
-  .progress-text {
-    font-size: 12px;
-    color: #888;
-    text-align: center;
-    margin-top: 6px;
-  }
+  .questions { padding: 8px 20px 20px; }
 
   .question {
-    padding: 16px 20px;
-    border-bottom: 1px solid #eef2f6;
-    transition: background 0.2s;
+    background: #fafbfc;
+    border: 1px solid #e8ecf0;
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
   }
 
   .question.answered {
     border-color: #27ae60;
     background: #f0faf4;
-  }
-
-  .question-text {
-    font-size: 15px;
-    font-weight: 500;
-    margin-bottom: 12px;
-    line-height: 1.4;
   }
 
   .question-number {
@@ -129,15 +79,25 @@
     text-align: center;
     line-height: 26px;
     font-size: 13px;
+    font-weight: 700;
     margin-right: 8px;
     flex-shrink: 0;
   }
+
+  .question-text {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .question-text span { padding-top: 2px; }
 
   .scale {
     display: flex;
     justify-content: space-between;
     gap: 6px;
-    margin-bottom: 4px;
   }
 
   .scale-option {
@@ -151,16 +111,20 @@
 
   .scale-option label {
     display: block;
-    padding: 8px 0;
+    padding: 10px 4px;
     border: 2px solid #d0d8e0;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
-    font-size: 15px;
-    font-weight: 600;
-    color: #555;
     transition: all 0.15s;
     background: #fff;
-    user-select: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: #555;
+  }
+
+  .scale-option label:hover {
+    border-color: #2980b9;
+    background: #eaf2f8;
   }
 
   .scale-option input[type="radio"]:checked + label {
@@ -170,98 +134,144 @@
     box-shadow: 0 2px 8px rgba(41,128,185,0.3);
   }
 
-  .scale-option label:hover {
-    border-color: #2980b9;
-    color: #2980b9;
-  }
-
   .scale-labels {
     display: flex;
     justify-content: space-between;
-    font-size: 10px;
-    color: #888;
-    margin-top: 4px;
-    line-height: 1.2;
+    margin-top: 6px;
+    padding: 0 4px;
   }
 
+  .scale-labels span {
+    font-size: 11px;
+    color: #888;
+    font-style: italic;
+  }
+
+  /* Progress bar */
+  .progress-area {
+    padding: 0 20px;
+    margin-bottom: 16px;
+  }
+
+  .progress-bar-bg {
+    background: #e8ecf0;
+    border-radius: 8px;
+    height: 8px;
+    overflow: hidden;
+  }
+
+  .progress-bar-fill {
+    background: linear-gradient(90deg, #27ae60, #2ecc71);
+    height: 100%;
+    width: 0%;
+    border-radius: 8px;
+    transition: width 0.3s;
+  }
+
+  .progress-text {
+    font-size: 12px;
+    color: #888;
+    text-align: center;
+    margin-top: 6px;
+  }
+
+  /* Results */
   .results-area {
     padding: 0 20px 24px;
     display: none;
   }
 
-  .results-area.visible {
-    display: block;
-  }
+  .results-area.visible { display: block; }
 
   .generate-btn {
     width: 100%;
-    padding: 14px;
-    background: #27ae60;
+    padding: 16px;
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
     color: #fff;
     border: none;
     border-radius: 10px;
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 600;
     cursor: pointer;
-    margin-top: 8px;
-    letter-spacing: 0.3px;
-    transition: background 0.2s;
+    transition: transform 0.1s, box-shadow 0.2s;
+    margin-bottom: 16px;
   }
 
-  .generate-btn:hover { background: #219150; }
-  .generate-btn:disabled { background: #aaa; cursor: default; }
+  .generate-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(39,174,96,0.3);
+  }
+
+  .generate-btn:disabled {
+    background: #bdc3c7;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
 
   .output-box {
-    margin-top: 14px;
-    padding: 14px;
-    background: #f8fafc;
-    border: 1.5px solid #d0d8e0;
-    border-radius: 8px;
+    background: #fdf9e8;
+    border: 2px dashed #f0c040;
+    border-radius: 10px;
+    padding: 16px;
+    font-size: 14px;
     white-space: pre-wrap;
-    font-family: monospace;
-    font-size: 13px;
-    min-height: 60px;
+    font-family: inherit;
+    line-height: 1.6;
+    display: none;
+    position: relative;
   }
 
+  .output-box.visible { display: block; }
+
   .copy-btn {
-    width: 100%;
-    padding: 12px;
+    display: block;
+    margin: 12px auto 0;
+    padding: 12px 32px;
     background: #2980b9;
     color: #fff;
     border: none;
-    border-radius: 10px;
-    font-size: 15px;
+    border-radius: 8px;
+    font-size: 14px;
     font-weight: 600;
     cursor: pointer;
-    margin-top: 10px;
-    transition: background 0.2s;
-    display: none;
   }
 
-  .copy-btn:hover { background: #1f6ea0; }
+  .copy-btn:hover { background: #1a5276; }
 
   .copy-msg {
-    display: none;
+    text-align: center;
+    font-size: 13px;
     color: #27ae60;
     font-weight: 600;
-    text-align: center;
     margin-top: 8px;
-    font-size: 14px;
+    display: none;
   }
 
   .portal-steps {
-    background: #eaf4fb;
-    border-radius: 8px;
-    padding: 14px 16px;
-    margin-top: 14px;
-    font-size: 14px;
+    background: #eaf2f8;
+    border-radius: 10px;
+    padding: 16px;
+    margin-top: 16px;
+    font-size: 13px;
     display: none;
   }
 
   .portal-steps.visible { display: block; }
-  .portal-steps h3 { margin-bottom: 8px; font-size: 14px; }
-  .portal-steps ol { padding-left: 20px; }
-  .portal-steps li { margin-bottom: 6px; }
+
+  .portal-steps h3 {
+    font-size: 14px;
+    color: #1a5276;
+    margin-bottom: 8px;
+  }
+
+  .portal-steps ol {
+    padding-left: 20px;
+  }
+
+  .portal-steps li {
+    margin-bottom: 6px;
+  }
 
   .footer {
     text-align: center;
@@ -272,73 +282,155 @@
     border-top: 1px solid #e8ecf0;
   }
 
+  /* Score interpretation badge */
+  .score-badge {
+    text-align: center;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    font-weight: 600;
+    font-size: 15px;
+  }
+
+  .score-normal {
+    background: #e8f8f0;
+    color: #1e8449;
+    border: 1px solid #a9dfbf;
+  }
+
+  .score-elevated {
+    background: #fef9e7;
+    color: #b7950b;
+    border: 1px solid #f9e79f;
+  }
+
+  .score-high {
+    background: #fdedec;
+    color: #c0392b;
+    border: 1px solid #f5b7b1;
+  }
+
+  .privacy-note {
+    background: #f0faf4;
+    border: 1px solid #a9dfbf;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin: 16px 20px 0;
+    font-size: 12px;
+    color: #1e8449;
+    text-align: center;
+  }
+
   @media (max-width: 400px) {
-    .scale-option label { font-size: 13px; padding: 6px 0; }
-    .header h1 { font-size: 19px; }
+    .scale-option label {
+      padding: 8px 2px;
+      font-size: 16px;
+    }
   }
 </style>
 </head>
 <body>
 
 <div class="container">
-
   <div class="header">
-    <h1>Reflux Symptom Questionnaire</h1>
+    <h1>Reflux Symptom Index (RSI)</h1>
     <p>Travis Sifers, MD &mdash; KC Physician Partners</p>
   </div>
 
   <div class="instructions">
     <strong>How to complete this form:</strong><br>
-    For each symptom below, tap the number that best describes how much it has bothered you <strong>within the last month.</strong>
-    <br><br>
-    <strong>0</strong> = No problem at all &nbsp;&nbsp; <strong>5</strong> = Severe problem
-    <br><br>
-    When finished, tap <strong>"Generate My Results"</strong> at the bottom, then copy the summary and paste it into your patient portal reply.
+    For each symptom below, tap the number that best describes how much it has bothered you <strong>within the last month</strong>.<br><br>
+    <strong>0</strong> = No problem at all &nbsp;&nbsp; <strong>5</strong> = Severe problem<br><br>
+    When finished, tap <strong>"Generate My Results"</strong> at the bottom, then copy the summary and paste it into your patient portal reply to Dr. Sifers.
   </div>
 
-  <div class="field-group">
-    <label for="patientName">Your Full Name</label>
-    <input type="text" id="patientName" placeholder="Enter your full name">
+  <div class="privacy-note">
+    Your responses are not stored or transmitted. Results only exist on your screen until you copy and send them via the patient portal.
   </div>
 
-  <div class="field-group">
-    <label for="patientDOB">Date of Birth</label>
-    <input type="date" id="patientDOB">
+  <div class="progress-area" style="margin-top: 16px;">
+    <div class="progress-bar-bg">
+      <div class="progress-bar-fill" id="progressFill"></div>
+    </div>
+    <div class="progress-text" id="progressText">0 of 9 answered</div>
   </div>
 
-  <div class="progress-bar">
-    <div class="progress-fill" id="progressFill"></div>
-  </div>
-  <p class="progress-text" id="progressText">0 of 9 answered</p>
-
-  <div class="questions" id="questionsContainer"><div class="question" id="q1"><p class="question-text"><span class="question-number">1.</span> Hoarseness or a problem with your voice</p><div class="scale"><div class="scale-option"><input type="radio" name="q1" id="q1_0" value="0" onchange="onAnswer(1)"><label for="q1_0" class="question-number">0</label></div><div class="scale-option"><input type="radio" name="q1" id="q1_1" value="1" onchange="onAnswer(1)"><label for="q1_1" class="question-number">1</label></div><div class="scale-option"><input type="radio" name="q1" id="q1_2" value="2" onchange="onAnswer(1)"><label for="q1_2" class="question-number">2</label></div><div class="scale-option"><input type="radio" name="q1" id="q1_3" value="3" onchange="onAnswer(1)"><label for="q1_3" class="question-number">3</label></div><div class="scale-option"><input type="radio" name="q1" id="q1_4" value="4" onchange="onAnswer(1)"><label for="q1_4" class="question-number">4</label></div><div class="scale-option"><input type="radio" name="q1" id="q1_5" value="5" onchange="onAnswer(1)"><label for="q1_5" class="question-number">5</label></div></div><div class="scale-labels"><span>0 = No problem</span><span>5 = Severe</span></div></div><div class="question" id="q2"><p class="question-text"><span class="question-number">2.</span> Clearing your throat</p><div class="scale"><div class="scale-option"><input type="radio" name="q2" id="q2_0" value="0" onchange="onAnswer(2)"><label for="q2_0" class="question-number">0</label></div><div class="scale-option"><input type="radio" name="q2" id="q2_1" value="1" onchange="onAnswer(2)"><label for="q2_1" class="question-number">1</label></div><div class="scale-option"><input type="radio" name="q2" id="q2_2" value="2" onchange="onAnswer(2)"><label for="q2_2" class="question-number">2</label></div><div class="scale-option"><input type="radio" name="q2" id="q2_3" value="3" onchange="onAnswer(2)"><label for="q2_3" class="question-number">3</label></div><div class="scale-option"><input type="radio" name="q2" id="q2_4" value="4" onchange="onAnswer(2)"><label for="q2_4" class="question-number">4</label></div><div class="scale-option"><input type="radio" name="q2" id="q2_5" value="5" onchange="onAnswer(2)"><label for="q2_5" class="question-number">5</label></div></div><div class="scale-labels"><span>0 = No problem</span><span>5 = Severe</span></div></div><div class="question" id="q3"><p class="question-text"><span class="question-number">3.</span> Excess throat mucus or postnasal drip</p><div class="scale"><div class="scale-option"><input type="radio" name="q3" id="q3_0" value="0" onchange="onAnswer(3)"><label for="q3_0" class="question-number">0</label></div><div class="scale-option"><input type="radio" name="q3" id="q3_1" value="1" onchange="onAnswer(3)"><label for="q3_1" class="question-number">1</label></div><div class="scale-option"><input type="radio" name="q3" id="q3_2" value="2" onchange="onAnswer(3)"><label for="q3_2" class="question-number">2</label></div><div class="scale-option"><input type="radio" name="q3" id="q3_3" value="3" onchange="onAnswer(3)"><label for="q3_3" class="question-number">3</label></div><div class="scale-option"><input type="radio" name="q3" id="q3_4" value="4" onchange="onAnswer(3)"><label for="q3_4" class="question-number">4</label></div><div class="scale-option"><input type="radio" name="q3" id="q3_5" value="5" onchange="onAnswer(3)"><label for="q3_5" class="question-number">5</label></div></div><div class="scale-labels"><span>0 = No problem</span><span>5 = Severe</span></div></div><div class="question" id="q4"><p class="question-text"><span class="question-number">4.</span> Difficulty swallowing food, liquids, or pills</p><div class="scale"><div class="scale-option"><input type="radio" name="q4" id="q4_0" value="0" onchange="onAnswer(4)"><label for="q4_0" class="question-number">0</label></div><div class="scale-option"><input type="radio" name="q4" id="q4_1" value="1" onchange="onAnswer(4)"><label for="q4_1" class="question-number">1</label></div><div class="scale-option"><input type="radio" name="q4" id="q4_2" value="2" onchange="onAnswer(4)"><label for="q4_2" class="question-number">2</label></div><div class="scale-option"><input type="radio" name="q4" id="q4_3" value="3" onchange="onAnswer(4)"><label for="q4_3" class="question-number">3</label></div><div class="scale-option"><input type="radio" name="q4" id="q4_4" value="4" onchange="onAnswer(4)"><label for="q4_4" class="question-number">4</label></div><div class="scale-option"><input type="radio" name="q4" id="q4_5" value="5" onchange="onAnswer(4)"><label for="q4_5" class="question-number">5</label></div></div><div class="scale-labels"><span>0 = No problem</span><span>5 = Severe</span></div></div><div class="question" id="q5"><p class="question-text"><span class="question-number">5.</span> Coughing after you ate or after lying down</p><div class="scale"><div class="scale-option"><input type="radio" name="q5" id="q5_0" value="0" onchange="onAnswer(5)"><label for="q5_0" class="question-number">0</label></div><div class="scale-option"><input type="radio" name="q5" id="q5_1" value="1" onchange="onAnswer(5)"><label for="q5_1" class="question-number">1</label></div><div class="scale-option"><input type="radio" name="q5" id="q5_2" value="2" onchange="onAnswer(5)"><label for="q5_2" class="question-number">2</label></div><div class="scale-option"><input type="radio" name="q5" id="q5_3" value="3" onchange="onAnswer(5)"><label for="q5_3" class="question-number">3</label></div><div class="scale-option"><input type="radio" name="q5" id="q5_4" value="4" onchange="onAnswer(5)"><label for="q5_4" class="question-number">4</label></div><div class="scale-option"><input type="radio" name="q5" id="q5_5" value="5" onchange="onAnswer(5)"><label for="q5_5" class="question-number">5</label></div></div><div class="scale-labels"><span>0 = No problem</span><span>5 = Severe</span></div></div><div class="question" id="q6"><p class="question-text"><span class="question-number">6.</span> Breathing difficulties or choking episodes</p><div class="scale"><div class="scale-option"><input type="radio" name="q6" id="q6_0" value="0" onchange="onAnswer(6)"><label for="q6_0" class="question-number">0</label></div><div class="scale-option"><input type="radio" name="q6" id="q6_1" value="1" onchange="onAnswer(6)"><label for="q6_1" class="question-number">1</label></div><div class="scale-option"><input type="radio" name="q6" id="q6_2" value="2" onchange="onAnswer(6)"><label for="q6_2" class="question-number">2</label></div><div class="scale-option"><input type="radio" name="q6" id="q6_3" value="3" onchange="onAnswer(6)"><label for="q6_3" class="question-number">3</label></div><div class="scale-option"><input type="radio" name="q6" id="q6_4" value="4" onchange="onAnswer(6)"><label for="q6_4" class="question-number">4</label></div><div class="scale-option"><input type="radio" name="q6" id="q6_5" value="5" onchange="onAnswer(6)"><label for="q6_5" class="question-number">5</label></div></div><div class="scale-labels"><span>0 = No problem</span><span>5 = Severe</span></div></div><div class="question" id="q7"><p class="question-text"><span class="question-number">7.</span> Troublesome or annoying cough</p><div class="scale"><div class="scale-option"><input type="radio" name="q7" id="q7_0" value="0" onchange="onAnswer(7)"><label for="q7_0" class="question-number">0</label></div><div class="scale-option"><input type="radio" name="q7" id="q7_1" value="1" onchange="onAnswer(7)"><label for="q7_1" class="question-number">1</label></div><div class="scale-option"><input type="radio" name="q7" id="q7_2" value="2" onchange="onAnswer(7)"><label for="q7_2" class="question-number">2</label></div><div class="scale-option"><input type="radio" name="q7" id="q7_3" value="3" onchange="onAnswer(7)"><label for="q7_3" class="question-number">3</label></div><div class="scale-option"><input type="radio" name="q7" id="q7_4" value="4" onchange="onAnswer(7)"><label for="q7_4" class="question-number">4</label></div><div class="scale-option"><input type="radio" name="q7" id="q7_5" value="5" onchange="onAnswer(7)"><label for="q7_5" class="question-number">5</label></div></div><div class="scale-labels"><span>0 = No problem</span><span>5 = Severe</span></div></div><div class="question" id="q8"><p class="question-text"><span class="question-number">8.</span> Sensations of something sticking in your throat or a lump in your throat</p><div class="scale"><div class="scale-option"><input type="radio" name="q8" id="q8_0" value="0" onchange="onAnswer(8)"><label for="q8_0" class="question-number">0</label></div><div class="scale-option"><input type="radio" name="q8" id="q8_1" value="1" onchange="onAnswer(8)"><label for="q8_1" class="question-number">1</label></div><div class="scale-option"><input type="radio" name="q8" id="q8_2" value="2" onchange="onAnswer(8)"><label for="q8_2" class="question-number">2</label></div><div class="scale-option"><input type="radio" name="q8" id="q8_3" value="3" onchange="onAnswer(8)"><label for="q8_3" class="question-number">3</label></div><div class="scale-option"><input type="radio" name="q8" id="q8_4" value="4" onchange="onAnswer(8)"><label for="q8_4" class="question-number">4</label></div><div class="scale-option"><input type="radio" name="q8" id="q8_5" value="5" onchange="onAnswer(8)"><label for="q8_5" class="question-number">5</label></div></div><div class="scale-labels"><span>0 = No problem</span><span>5 = Severe</span></div></div><div class="question" id="q9"><p class="question-text"><span class="question-number">9.</span> Heartburn, chest pain, indigestion, or stomach acid coming up</p><div class="scale"><div class="scale-option"><input type="radio" name="q9" id="q9_0" value="0" onchange="onAnswer(9)"><label for="q9_0" class="question-number">0</label></div><div class="scale-option"><input type="radio" name="q9" id="q9_1" value="1" onchange="onAnswer(9)"><label for="q9_1" class="question-number">1</label></div><div class="scale-option"><input type="radio" name="q9" id="q9_2" value="2" onchange="onAnswer(9)"><label for="q9_2" class="question-number">2</label></div><div class="scale-option"><input type="radio" name="q9" id="q9_3" value="3" onchange="onAnswer(9)"><label for="q9_3" class="question-number">3</label></div><div class="scale-option"><input type="radio" name="q9" id="q9_4" value="4" onchange="onAnswer(9)"><label for="q9_4" class="question-number">4</label></div><div class="scale-option"><input type="radio" name="q9" id="q9_5" value="5" onchange="onAnswer(9)"><label for="q9_5" class="question-number">5</label></div></div><div class="scale-labels"><span>0 = No problem</span><span>5 = Severe</span></div></div></div>
+  <div class="questions" id="questionsContainer"></div>
 
   <div class="results-area" id="resultsArea">
-    <button class="generate-btn" id="generateBtn" onclick="generateResults()">
+    <button class="generate-btn" id="generateBtn" disabled onclick="generateResults()">
       Generate My Results
     </button>
+    <div id="scoreBadge"></div>
     <div class="output-box" id="outputBox"></div>
-    <button class="copy-btn" id="copyBtn" onclick="copyResults()">Copy to Clipboard</button>
+    <button class="copy-btn" id="copyBtn" style="display:none" onclick="copyResults()">
+      Copy Results to Clipboard
+    </button>
     <div class="copy-msg" id="copyMsg">Copied! Now paste into your portal message.</div>
     <div class="portal-steps" id="portalSteps">
-      <h3>What to do next:</h3>
+      <h3>Next steps:</h3>
       <ol>
-        <li>Tap <strong>"Copy to Clipboard"</strong> above</li>
+        <li>Tap <strong>"Copy Results to Clipboard"</strong> above</li>
         <li>Go back to your <strong>patient portal</strong></li>
-        <li>Open a message to Dr. Sifers and <strong>paste</strong> the results</li>
-        <li>Send the message</li>
+        <li>Tap <strong>Reply</strong> to Dr. Sifers' message</li>
+        <li><strong>Paste</strong> the copied text into your reply</li>
+        <li>Tap <strong>Send</strong></li>
       </ol>
     </div>
   </div>
 
   <div class="footer">
     This questionnaire is for Dr. Sifers' use in monitoring your reflux symptoms.<br>
+    No personal information is collected or stored by this page.<br>
     If you are experiencing a medical emergency, please call 911.
   </div>
-
 </div>
 
 <script>
+const questions = [
+  "Hoarseness or a problem with your voice",
+  "Clearing your throat",
+  "Excess throat mucus or postnasal drip",
+  "Difficulty swallowing food, liquids, or pills",
+  "Coughing after you ate or after lying down",
+  "Breathing difficulties or choking episodes",
+  "Troublesome or annoying cough",
+  "Sensation of something sticking in your throat or a lump in your throat",
+  "Heartburn, chest pain, indigestion, or stomach acid coming up"
+];
+
+const container = document.getElementById("questionsContainer");
+
+questions.forEach((q, i) => {
+  const num = i + 1;
+  const div = document.createElement("div");
+  div.className = "question";
+  div.id = "q" + num;
+
+  let scaleHTML = '<div class="scale">';
+  for (let v = 0; v <= 5; v++) {
+    scaleHTML += `
+      <div class="scale-option">
+        <input type="radio" name="q${num}" id="q${num}_${v}" value="${v}"
+               onchange="onAnswer(${num})">
+        <label for="q${num}_${v}">${v}</label>
+      </div>`;
+  }
+  scaleHTML += '</div>';
+  scaleHTML += '<div class="scale-labels"><span>No problem</span><span>Severe</span></div>';
+
+  div.innerHTML = `
+    <div class="question-text">
+      <span class="question-number">${num}</span>
+      <span>${q}</span>
+    </div>
+    ${scaleHTML}`;
+
+  container.appendChild(div);
+});
+
+// Show results area
+document.getElementById("resultsArea").classList.add("visible");
 
 let answered = new Set();
 
@@ -349,12 +441,11 @@ function onAnswer(qNum) {
   // Update progress
   const pct = Math.round((answered.size / 9) * 100);
   document.getElementById("progressFill").style.width = pct + "%";
-  document.getElementById("progressText").textContent = answered.size + " of 9 answered";
+  document.getElementById("progressText").textContent =
+    answered.size + " of 9 answered";
 
-  // Enable generate button when all answered
-  if (answered.size === 9) {
-    document.getElementById("generateBtn").disabled = false;
-  }
+  // Enable button when all answered
+  document.getElementById("generateBtn").disabled = (answered.size < 9);
 }
 
 function getScore(qNum) {
@@ -363,67 +454,79 @@ function getScore(qNum) {
 }
 
 function generateResults() {
-  const name = document.getElementById("patientName").value.trim() || "(not provided)";
-  const dob = document.getElementById("patientDOB").value || "(not provided)";
   const today = new Date().toLocaleDateString("en-US", {
     year: "numeric", month: "long", day: "numeric"
   });
 
-  const labels = [
-    "Hoarseness or voice problem",
-    "Clearing your throat",
-    "Excess throat mucus / postnasal drip",
-    "Difficulty swallowing",
-    "Coughing after eating or lying down",
-    "Breathing difficulties / choking episodes",
-    "Troublesome cough",
-    "Something sticking in throat / lump in throat",
-    "Heartburn / chest pain / indigestion / acid coming up"
-  ];
-
   let total = 0;
-  let lines = "";
-  for (let i = 1; i <= 9; i++) {
-    const score = getScore(i);
-    if (score === null) {
-      lines += "  Q" + i + ". " + labels[i-1] + ": (no answer)\n";
-    } else {
-      total += score;
-      lines += "  Q" + i + ". " + labels[i-1] + ": " + score + "/5\n";
-    }
+  let lines = [];
+
+  questions.forEach((q, i) => {
+    const score = getScore(i + 1);
+    total += score;
+    lines.push(`${i + 1}. ${q}: ${score}/5`);
+  });
+
+  // Score interpretation
+  let interpretation = "";
+  let badgeClass = "";
+  if (total <= 13) {
+    interpretation = "Score is within normal range (13 or below).";
+    badgeClass = "score-normal";
+  } else if (total <= 25) {
+    interpretation = "Score is elevated (above 13) — suggestive of reflux.";
+    badgeClass = "score-elevated";
+  } else {
+    interpretation = "Score is significantly elevated — suggestive of significant reflux.";
+    badgeClass = "score-high";
   }
 
-  const severity = total <= 10 ? "Within normal limits" :
-                   total <= 20 ? "Mild reflux symptoms" :
-                   total <= 35 ? "Moderate reflux symptoms" :
-                                 "Severe reflux symptoms";
+  // Show visual badge
+  const badgeEl = document.getElementById("scoreBadge");
+  badgeEl.innerHTML = `<div class="score-badge ${badgeClass}">Total Score: ${total}/45 &mdash; ${interpretation}</div>`;
 
   const output =
-    "RSI Questionnaire Results\n" +
-    "==========================\n" +
-    "Patient: " + name + "\n" +
-    "DOB: " + dob + "\n" +
-    "Date: " + today + "\n\n" +
-    "SCORES:\n" + lines + "\n" +
-    "TOTAL RSI SCORE: " + total + " / 45\n" +
-    "Interpretation: " + severity + "\n\n" +
-    "Please paste this into your patient portal message to Dr. Sifers.";
+`REFLUX SYMPTOM INDEX (RSI)
+Date Completed: ${today}
 
-  document.getElementById("outputBox").textContent = output;
+RESPONSES (0 = No problem, 5 = Severe):
+${lines.join("\n")}
+
+TOTAL SCORE: ${total} / 45
+${interpretation}`;
+
+  const box = document.getElementById("outputBox");
+  box.textContent = output;
+  box.classList.add("visible");
   document.getElementById("copyBtn").style.display = "block";
   document.getElementById("portalSteps").classList.add("visible");
-  document.getElementById("resultsArea").classList.add("visible");
+
+  box.scrollIntoView({ behavior: "smooth", block: "center" });
 }
 
 function copyResults() {
   const text = document.getElementById("outputBox").textContent;
   navigator.clipboard.writeText(text).then(() => {
-    const msg = document.getElementById("copyMsg");
-    msg.style.display = "block";
-    setTimeout(() => { msg.style.display = "none"; }, 2500);
+    showCopyMsg();
+  }).catch(() => {
+    // Fallback for older browsers or non-HTTPS contexts (e.g. GitHub Pages)
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed";
+    ta.style.left = "-9999px";
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand("copy");
+    document.body.removeChild(ta);
+    showCopyMsg();
   });
 }
 
+function showCopyMsg() {
+  const msg = document.getElementById("copyMsg");
+  msg.style.display = "block";
+  setTimeout(() => { msg.style.display = "none"; }, 5000);
+}
 </script>
 </body>
 </html>
